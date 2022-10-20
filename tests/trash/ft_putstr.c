@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-char ft_putchar(char c);
+char ft_putchar1(char c);
 
 void	ft_putstr(char *str)
 {
@@ -9,7 +9,7 @@ void	ft_putstr(char *str)
     index = 0;
     while(str[index] != '\0')
     {
-        ft_putchar(str[index]);
+        ft_putchar1(str[index]);
         index++;
     }
 }

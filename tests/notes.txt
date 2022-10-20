@@ -2,7 +2,7 @@
 ~~~~~~ FILE DESCRIPTOR
 man 2 write
 
-int write(int fd, char *buf0, int count);
+int write(int fd, char *buf, int count);
 
 void ft_putchar(c)
 {
@@ -32,3 +32,26 @@ O_RDWR      |   Aberto para leitura e escrita.
 O_CREAT    |   Se o arquivo não existe, crie-o
 O_TRUNC    |   Se o arquivo existir, escreva a partir do primeiro bytes
 O_APPEND   |   Se o arquivo existir, escreva no ultimo byte
+
+
+~~~~~~ WRTE() ESCREVER UM ARQUIVO
+man 2 write
+
+int write(int fd, char *buf, int count);
+
+fd = Descritor de arquivo para gravar
+buf = Buffer de origem
+count = Numero de bites para escrever
+
+Valor de retorno: Numero de bytes escritos ou -1 em caso de erro
+
+~~~~~~ READ() LER UM ARQUIVO
+man 2 read
+
+int write(int fd, char *buf, int count);
+
+fd = Descritor de arquivo para gravar
+buf = Buffer de origem
+count = Numero de bites para escrever
+
+Valor de retorno: Numero de bytes escritos ou -1 em caso de erro
