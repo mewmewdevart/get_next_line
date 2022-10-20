@@ -1,0 +1,23 @@
+#    |\__/,|   (`\
+#  _.|o o  |_   ) )
+#-(((---(((--------     Larcrist
+
+
+#GET_NEXT_LINE IGNORE
+# Coder
+.vscode/
+src/main.c
+src/a.out
+
+# Object files
+*.o
+*.obj
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Libraries
+*.lib
+*.a
