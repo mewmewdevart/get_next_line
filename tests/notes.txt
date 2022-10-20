@@ -1,0 +1,34 @@
+
+~~~~~~ FILE DESCRIPTOR
+man 2 write
+
+int write(int fd, char *buf0, int count);
+
+void ft_putchar(c)
+{
+    write(1, &c, 1);
+}
+
+File Descriptors Standards
+0 | stdin   | Entrada padrão
+1 | stdout  | Saída padrão
+2 | stderr  | Erro padrão
+
+~~~~~~ OPEN() Abrir um arquivo
+man 2 open 
+
+int open(char *path, int flags, [mode_t perm]);
+
+path = arquivo
+flags = modo de abertura
+perm = permissoes
+
+Valor de retorno: File descriptor (int) ou -1 em caso de erro
+
+O_RDONLY    |   Aberto apenas para leitura.
+O_WRONLY    |   Aberto apenas para escrita.
+O_RDWR      |   Aberto para leitura e escrita.
+
+O_CREAT    |   Se o arquivo não existe, crie-o
+O_TRUNC    |   Se o arquivo existir, escreva a partir do primeiro bytes
+O_APPEND   |   Se o arquivo existir, escreva no ultimo byte

@@ -1,18 +1,14 @@
-#include <stdio.h>
-#include "../src/get_next_line.c"
+#include <fcntl.h>
+
+void    ft_putnbr(int nb);
+void    ft_putstr(char *str);
+char    ft_putchar(char c);
+
 int main (void)
 {
-	int fd;
-	char *line;
+    int fd;
 
-	fd = open("oi.txt", o_rdonly);
-	if (fd == -1)
-	{
-		return (error);
-	}
-
-	line = get_next_line(fd);
-	free(line);
-
-	return (0);
+    fd = open("Jerimum", O_WRONLY | O_CREAT);
+    ft_putnbr(fd);
+    return (0);
 }

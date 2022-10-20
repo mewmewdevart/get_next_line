@@ -2,12 +2,13 @@
 #  _.|o o  |_   ) )
 #-(((---(((--------     Larcrist
 
-
 #GET_NEXT_LINE IGNORE
 # Coder
 .vscode/
 src/main.c
 src/a.out
+src/intra/a.out
+src/intra/Jerimum
 
 # Object files
 *.o
