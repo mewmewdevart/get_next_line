@@ -69,9 +69,9 @@ Here `BUFFER_SIZE` determines the size of the buffer used to read the file (in o
 To run the program, enter the following in the command prompt:
 
 ```shell
-$ ./get_next_line
+$ ./get_next_line [file]
 ```
-
+Output should show the entire contents of the given file.
 
 
 
