@@ -33,7 +33,14 @@ O_CREAT    |   Se o arquivo não existe, crie-o
 O_TRUNC    |   Se o arquivo existir, escreva a partir do primeiro bytes
 O_APPEND   |   Se o arquivo existir, escreva no ultimo byte
 
+~~~~~~ CLOSE
+man 2 close
 
+int close(int fd);
+
+fd = file descriptor
+
+Valor de retorno: 0 ou -1 em caso de erro
 ~~~~~~ WRTE() ESCREVER UM ARQUIVO
 man 2 write
 
