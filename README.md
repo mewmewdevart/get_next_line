@@ -37,6 +37,7 @@ The function is written in C language and thus needs the **`gcc` compiler** and 
 ❗️| Make sure you have all the required tools installed on your local machine then continue with these steps.
 
 ### Instructions
+This function is not a stand-alone program, its files must be included and compiled within another project.
 
 **0. Download the archives**
 
@@ -57,8 +58,46 @@ To use the function in your code, simply include its header:
 ```c
 #include "get_next_line.h"
 ```
+And create a main with some inserts. <br>
+Example ``main.c``:
+```c
+#include "get_next_line.h"
+#include <stdio.h> 
+#include <fcntl.h> 
 
-**2. Run the program**
+int	main(int argc, char **argv)
+{
+    int fd;
+    char *line;
+
+    (void)argc;
+    fd = open(argv[1], O_RDONLY);
+    if(fd == -1)
+    {
+        printf("open() error\n");
+        return (1);
+    }
+    
+    line = "";
+    while (line != NULL)
+    {
+	line = get_next_line(fd);
+	printf("%s", line);
+    }
+
+    fd = close(fd);
+    if(fd == -1)
+    {
+        printf("close() error\n");
+        return(1);
+    }
+    printf("%d", fd);
+	
+    return(0);
+}
+```
+
+**2. Compilation**
 
  When compiling your code, add the source files and the required flag:
 
@@ -69,9 +108,9 @@ Here `BUFFER_SIZE` determines the size of the buffer used to read the file (in o
 To run the program, enter the following in the command prompt:
 
 ```shell
-$ ./get_next_line [file]
+$ ./get_next_line [file.txt]
 ```
-Output should show the entire contents of the given file.
+Output should show the entire contents of the given file followed by a newline \n.
 
 
 
@@ -79,5 +118,6 @@ Output should show the entire contents of the given file.
 
 * [Acelera/Rodsmade](https://github.com/rodsmade/Projets_42_SP/)
 * [gnlTester/Tripouille](https://github.com/Tripouille/gnlTester)
+* [Resources/Mcombeau](https://github.com/mcombeau)
 
 <p align="center"> Developed with love 💜 by Larissa Cristina Benedito (Mewmew/Larcrist). </p>
