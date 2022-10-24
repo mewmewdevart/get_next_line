@@ -62,3 +62,20 @@ buf = Buffer de origem
 count = Numero de bites para escrever
 
 Valor de retorno: Numero de bytes escritos ou -1 em caso de erro
+
+~~~~~~ Lseek Repositionner l'offset
+man 2 lseek
+
+int lseek(int fd, int offset, int mode);
+fd = File descriptor
+offset = resultado do deslocamento ou do calculo
+mode = Modo de claculo do novo offset
+
+Valor de retorno : Novo offset ou -1 em caso de erro
+
+
+#Estrutura do get_next_line
+	A function to read from the file descriptor
+	A function to get the line to return
+	A function to save the extra read characters
+	The get_next_line function
