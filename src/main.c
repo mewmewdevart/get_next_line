@@ -6,36 +6,37 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 23:00:28 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/23 16:38:50 by marvin           ###   ########.fr       */
+/*   Updated: 2022/10/26 19:24:44 by larcrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include <stdio.h> 
+#include <unistd.h>
 #include <fcntl.h> 
+#include "get_next_line.h"
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     int fd;
-    char *line;
+    char    *line;
 
     (void)argc;
-    fd = open(argv[1], O_RDONLY); //Entrada pelo teclado
-    if(fd == -1)
+    fd = open(argv[1], O_RDONLY);
+    if (fd == -1)
     {
         printf("open() error\n");
         return (1);
     }
     
     line = "";
-    while (line != NULL) //Enquanto a linha nao estiver lida 
+    while (line != NULL)
     {
 		line = get_next_line(fd);
-		printf("%s\n", line); //Seguido de uma new line
+		printf("%s\n", line);
     }
 
     fd = close(fd);
-    if(fd == -1)
+    if (fd == -1)
     {
         printf("close() error\n");
         return(1);
