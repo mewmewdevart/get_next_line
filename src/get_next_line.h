@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 23:00:25 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/21 17:10:03 by larcrist         ###   ########.fr       */
+/*   Updated: 2022/10/28 10:32:27 by larcrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 
 # include <unistd.h> //write
 # include <stdlib.h> //malloc(), free() and size_t
-# include <fcntl.h> //manipulate file descriptor
 
 /* -------◊	GNL	◊------- */
-char	*get_next_line(int fd);
-
+int				ft_found_error(int fd);
+void			ft_free(char **str);
+char			*ft_slice(char **str);
+char			*ft_substr(char const *str, unsigned int start, size_t len);
+char			*get_next_line(int fd);
 /* -------◊	UTILS	◊------- */
+size_t			ft_strlen(const char *s);
+char			*ft_strchr(const char *s, int c);
+char			*ft_strjoin(char const *s1, char const *s2);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
+char			*ft_strdup(const char *s1);
 
 #endif
