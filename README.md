@@ -60,40 +60,36 @@ To use the function in your code, simply include its header:
 ```
 And create a main with some inserts. <br>
 Example ``main.c``:
-```c
+```c  
 #include "get_next_line.h"
-#include <stdio.h> 
-#include <fcntl.h> 
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-    int fd;
-    char *line;
+	int		fd;
+	char	*line;
 
-    (void)argc;
-    fd = open(argv[1], O_RDONLY);
-    if(fd == -1)
-    {
-        printf("open() error\n");
-        return (1);
-    }
-    
-    line = "";
-    while (line != NULL)
-    {
-	line = get_next_line(fd);
-	printf("%s", line);
-    }
-
-    fd = close(fd);
-    if(fd == -1)
-    {
-        printf("close() error\n");
-        return(1);
-    }
-    printf("%d", fd);
-	
-    return(0);
+	(void)argc;
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		printf("open() error\n");
+		return (1);
+	}
+	line = "";
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+		printf("%s", line);
+	}
+	fd = close(fd);
+	if (fd == -1)
+	{
+		printf("close() error\n");
+		return (1);
+	}
+	printf("%d", fd);
+	return (0);
 }
 ```
 
