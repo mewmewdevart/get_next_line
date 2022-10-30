@@ -1,3 +1,87 @@
+◊ File Descriptor em C ◊
+	Um descritor de arquivo (fd para abreviar) é um pequeno inteiro positivo usado como referência a um arquivo aberto em um processo.
+
+	Limite de arquivos abertos com o fd: 1024
+
+	Três tipos de descritores de arquivos:
+	FD______________|___Name___________________________________________	
+	0		|	Standard Input	|	STDIN_FILENO	|	stdin
+	1		|	Standard Output	|	STDOUT_FILENO	|	stdout
+	2		|	Standard Error	|	STDERR_FILENO	|	stderr
+
+	Abrindo ou criando arquivos em C:
+		Biblioteca:
+			#include <fcntl.h> 
+					O cabeçalho deve definir as seguintes solicitações e argumentos para uso pelas funções fcntl() e open().
+		Prototipação:
+			int open(const char *pathname, int flags);
+			int open(const char *pathname, int flags, mode_t mode);
+
+				pathname : O caminho para o arquivo na forma de uma string de caracteres. (pasta de acesso etc etc arquivo.txt).
+				flags : Um inteiro representando as flags que indicam o modo de acesso.
+				mode : Um inteiro que representa as permissões a serem concedidas ao arquivo na criação (opcional)
+
+		A função:
+			A função open() retorna o descritor de arquivo recém-criado se o arquivo foi adicionado com sucesso às tabelas inode e open file. A  sua representação será
+		maior do que 2 porquê os numeros (0, 1 e 2) estão reservados para a entrada, saida e erro padrão. Retornando (-1) caso mencionemos um arquivo inexistente ou qual
+		temos permissão para acessar.
+
+		Flags, o modo de acesso: (mais conhecidas)
+
+		Constante Simbolica | Descrição
+			O_RDONLY		| Somente leitura
+			O_WRONLY		| Apenas escrever
+			O_RDWR			| Ler e escrever
+			O_TRUNC			| Modo truncado. Se o arquivo existe e o modo de acesso permite escrever nele ( O_WRONLYou O_RDWR), trunca seu conteúdo para tamanho 0 ao ser aberto, com o efeito de sobrescrever o arquivo.
+			O_APPEND		| Modo Anexar. O deslocamento do arquivo é definido para o final do arquivo em cada gravação, com o efeito de adicionar texto ao final do arquivo em vez de sobrescrevê-lo.
+			O_CREAT			| Cria o arquivo se ele ainda não existir. Suas permissões devem então ser especificadas no parâmetro mode deopen .
+
+			Por exemplo, podemos abrir um arquivo no modo somente leitura desta forma:
+					open("path/to/file", O_RDONLY); ou usando o pipe | para combinar sinalizadores > open("path/to/file", O_WRONLY | O_TRUNC);
+
+	Fechando o fd
+		Prototipação:
+				int close(int fd);
+
+				close(int fd);
+
+				Use tal comando para desreferenciar o arquivo. Em caso de sucesso retorna (1) em caso de erro (-1)
+
+
+	Lendo de um descritor de arquivo em C
+		A função read() da <unistd.h> biblioteca, carrega o conteúdo de um arquivo na memória, parcial ou totalmente, usando seu descritor de arquivo. 
+		Prototipação:
+				ssize_t read(int fd, void *buf, size_t count);
+
+				fd : o descritor de arquivo para ler,
+				buf : um ponteiro para uma área de memória onde podemos armazenar temporariamente os caracteres lidos,
+				count : um tamanho em bytes a serem lidos, ou seja, o número de caracteres a serem lidos. Esse tamanho geralmente se correlaciona com o tamanho da área de memória indicada no parâmetro anterior.
+			
+			Em seguida, a readfunção retorna o número de caracteres que leu, ou -1 em caso de erro. Quando a readfunção chegar ao final do arquivo, ela retornará naturalmente 0.
+
+	Exemplo : main_read0.c
+
+
+
+◊ Macros ◊
+	Macros ou Microinstruções é um recurso de pré compilação (pre-processamento) que permite criar estruturas que serão substituídas antes do código ser compilado.
+
+	BUFFER_SIZE : É definido dentro do codigo e na hora de ser compilado usando a flag gcc -DESCRIPTOR
+		gcc -D [nameMacro] [source files] [-o output file]
+
+
+◊ Variaveis estáticas ◊
+	Variaveis estáticas: Se ela estiver dentro de uma função (ou arquivo), ela existirá em todas as chamadas.
+		Variaveis estáticas são apenas reconhecidas no arquivo em que foram definidas.
+
+	Curiosidade:
+		Variaveis locais: São definidas dentro de funções e passam a existir somente no momento de execução das funções.
+		Variaveis globais: Existem durante todo tempo de execução do programa.
+			Exemplo:
+				StaticVariable/static.c
+		
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ~~~~~~ FILE DESCRIPTOR
 man 2 write
@@ -74,8 +158,7 @@ mode = Modo de claculo do novo offset
 Valor de retorno : Novo offset ou -1 em caso de erro
 
 
-#Estrutura do get_next_line
-	A function to read from the file descriptor
-	A function to get the line to return
-	A function to save the extra read characters
-	The get_next_line function
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Links super-uteis: https://rodsmade.notion.site/Acelera-Get_next_line-4902aab835ef4b86a7c55d82cc5c19ec
+					https://rodsmade.notion.site/Acelera-Get_next_line-4902aab835ef4b86a7c55d82cc5c19ec
