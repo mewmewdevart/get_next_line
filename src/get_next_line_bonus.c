@@ -6,7 +6,7 @@
 /*   By: larcrist <larcrist@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 21:14:26 by larcrist          #+#    #+#             */
-/*   Updated: 2022/10/29 21:14:27 by larcrist         ###   ########.fr       */
+/*   Updated: 2022/10/30 15:53:58 by larcrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,20 @@ static	void	ft_free(char **str)
 //slice the string into pieces
 static char	*ft_slice(char **str)
 {
-	int		i;
+	int		index;
 	char	*ret;
-	char	*aux;
+	char	*sup;
 
-	i = 0;
+	index = 0;
 	if (!str[0])
 		return (NULL);
-	while (str[0][i] != '\n' && str[0][i] != '\0')
-		i++;
-	ret = ft_substr(str[0], 0, i + 1);
-	aux = ft_strdup(str[0]);
+	while (str[0][index] != '\n' && str[0][index] != '\0')
+		index++;
+	ret = ft_substr(str[0], 0, index + 1);
+	sup = ft_strdup(str[0]);
 	ft_free(str);
-	str[0] = ft_substr(aux, i + 1, ft_strlen(aux));
-	ft_free(&aux);
+	str[0] = ft_substr(sup, index + 1, ft_strlen(sup));
+	ft_free(&sup);
 	if (!ft_strchr(ret, '\n'))
 	{
 		if (!ft_strlen(ret))
