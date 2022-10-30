@@ -22,15 +22,16 @@
 	Function implementation. <br>
 	- ```ft_found_error``` finds an error in input <br>
 	- ```ft_free``` de-allocate the memory
-	- ```*ft_slice``` slice the string into pieces
-	- ```*ft_substr``` returns a substring from a string
+	- ```ft_slice``` slice the string into pieces
+	- ```ft_substr``` returns a substring from a string
 
 * ```get_next_line_utils.c``` 
 	Auxiliary functions (project requirement). <br>
 	- ```ft_strlen``` calculate the length of a string
-	- ```*ft_strchr``` locate character in string
-	- ```*ft_strjoin``` concatenates two strings
-	- ```*ft_substr``` returns a substring from a string
+	- ```ft_strchr``` locate character in string
+	- ```ft_strjoin``` concatenates two strings
+	- ```ft_strlcpy``` concatenate string to an specific size
+	- ```ft_strdup``` creates a dupplicate for the string passed as parameter
 
 * ```get_next_line.h``` 
 	Header file.
