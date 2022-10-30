@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 23:00:23 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/30 15:34:56 by larcrist         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:44:29 by larcrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*get_next_line(int fd)
 
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	size = read(fd, buffer, BUFFER_SIZE);
-	if (ft_found_error(fd))
+	if (!ft_found_error(fd))
 		return (NULL);
 	while (size > 0)
 	{
@@ -49,10 +49,11 @@ char	*get_next_line(int fd)
 //finds an error in input
 static int	ft_found_error(int fd)
 {
-	if (fd == -1 || BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (1);
 	return (0);
 }
+
 
 //de-allocate the memory
 static	void	ft_free(char **str)
