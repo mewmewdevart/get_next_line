@@ -6,7 +6,7 @@
 /*   By: larcrist <larcrist@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 21:14:26 by larcrist          #+#    #+#             */
-/*   Updated: 2022/10/30 15:53:58 by larcrist         ###   ########.fr       */
+/*   Updated: 2022/10/30 22:01:16 by larcrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ char	*get_next_line(int fd)
 	char		*support;
 	static char	*string[1024];
 
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	size = read(fd, buffer, BUFFER_SIZE);
 	if (ft_found_error(fd))
 		return (NULL);
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	size = read(fd, buffer, BUFFER_SIZE);
 	while (size > 0)
 	{
 		buffer[size] = '\0';
