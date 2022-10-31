@@ -19,16 +19,28 @@
 
 ## 📁 Files/src
 * ```get_next_line.c```
-	Function implementation.
+	Function implementation. <br>
+	- ```ft_found_error``` finds an error in input <br>
+	- ```ft_free``` de-allocate the memory
+	- ```ft_slice``` slice the string into pieces
+	- ```ft_substr``` returns a substring from a string
 
 * ```get_next_line_utils.c``` 
-	Auxiliary functions (project requirement).
+	Auxiliary functions (project requirement). <br>
+	- ```ft_strlen``` calculate the length of a string
+	- ```ft_strchr``` locate character in string
+	- ```ft_strjoin``` concatenates two strings
+	- ```ft_strlcpy``` concatenate string to an specific size
+	- ```ft_strdup``` creates a dupplicate for the string passed as parameter
 
 * ```get_next_line.h``` 
 	Header file.
 
 * ```main.c``` 
 	Printing loop iterating over the file : calls get_next_line to fetch each line, then prints.
+
+* ```*_bonus.c``` 
+	 The files is exact copies of corresponding files but with the challenge you can read from the file descriptors 3, 4 and 5, to doing able to read from a different fd per call without losing the reading thread of each file descriptor or returning a line from another.
 
 ## 🛠️ Usage
 
