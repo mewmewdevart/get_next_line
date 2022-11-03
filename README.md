@@ -18,14 +18,14 @@
 > _This project introduces the concepts of _static variables_, _dynamic memory allocation_, _file descriptors_ and _macros_ while solving one simple task: that of using the Linux standard function `read()` to scan a file for _single lines_ (i.e. strings of chars with a single trailing `\n` (new line character)).
 
 ## 📁 Files/src
-* ```get_next_line.c```
+* [`get_next_line.c`](src/get_next_line.c)
 	Function implementation. <br>
 	- ```ft_found_error``` finds an error in input <br>
 	- ```ft_free``` de-allocate the memory
 	- ```ft_slice``` slice the string into pieces
 	- ```ft_substr``` returns a substring from a string
 
-* ```get_next_line_utils.c``` 
+* [`get_next_line_utils.c`](src/get_next_line_utils.c)
 	Auxiliary functions (project requirement). <br>
 	- ```ft_strlen``` calculate the length of a string
 	- ```ft_strchr``` locate character in string
@@ -33,10 +33,10 @@
 	- ```ft_strlcpy``` concatenate string to an specific size
 	- ```ft_strdup``` creates a dupplicate for the string passed as parameter
 
-* ```get_next_line.h``` 
+* [`get_next_line.h`](src/get_next_line.h)
 	Header file.
 
-* ```main.c``` 
+* [`main.c`](src/main.c)
 	Printing loop iterating over the file : calls get_next_line to fetch each line, then prints.
 
 * ```*_bonus.c``` 
