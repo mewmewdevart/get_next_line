@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	{
 		line = get_next_line(fd);
 		printf("%s", line);
+		free(line);
 	}
 	fd = close(fd);
 	if (fd == -1)
