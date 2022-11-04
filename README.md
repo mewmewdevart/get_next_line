@@ -1,5 +1,9 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50052600/200047157-53df5299-3754-421d-8f00-54db98d8f9f1.png" />
+</p>
+
 <h1 align="center">
- get_next_line [⚠️ In Development] 
+ Get_next_line
 </h1>
 
 <p align="center">
